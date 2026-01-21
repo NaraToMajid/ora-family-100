@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Family 100 - Game Tebak Jawaban</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon">F</div>
+                <div class="logo-text">
+                    <h1>FAMILY 100</h1>
+                    <p class="subtitle">Tebak jawaban yang tersembunyi</p>
+                </div>
+            </div>
+            <div class="stats-header">
+                <div class="stat-badge">
+                    <span class="stat-label">SCORE</span>
+                    <span class="stat-value" id="score">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="game-area">
+            <!-- Question Section -->
+            <div class="section question-section">
+                <div class="section-label">SOAL</div>
+                <div class="question-box" id="question-box">
+                    <div class="loading" id="loading">
+                        <div class="loading-dots">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <p>Memuat soal...</p>
+                    </div>
+                    <div class="question-text" id="question-text"></div>
+                </div>
+            </div>
+
+            <!-- Answer Input -->
+            <div class="section input-section">
+                <div class="section-label">JAWABAN</div>
+                <div class="input-box">
+                    <input type="text" id="answer-input" placeholder="Ketik jawaban di sini..." maxlength="50" autocomplete="off">
+                    <div class="input-info">
+                        <span class="char-count" id="char-count">0/50</span>
+                        <button class="btn-clear" id="clear-btn" title="Hapus">✕</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="section result-section">
+                <div class="section-label">HASIL</div>
+                <div class="result-box" id="result-box">
+                    <div class="result-header">
+                        <div class="result-icon" id="result-icon">⚫</div>
+                        <div class="result-title" id="result-title">Tunggu jawaban</div>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-message" id="result-message">Submit jawaban untuk cek hasil</div>
+                        <div class="answer-list" id="answer-list">
+                            <!-- Daftar jawaban benar akan muncul di sini -->
+                        </div>
+                        <div class="stats-mini">
+                            <div class="stat-mini">
+                                <span class="stat-mini-label">BENAR:</span>
+                                <span class="stat-mini-value" id="correct-count">0</span>
+                            </div>
+                            <div class="stat-mini">
+                                <span class="stat-mini-label">SISA:</span>
+                                <span class="stat-mini-value" id="remaining-count">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Answers Grid -->
+            <div class="section grid-section">
+                <div class="section-label">JAWABAN TERKAIT</div>
+                <div class="answers-grid" id="answers-grid">
+                    <!-- Grid jawaban akan muncul di sini -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-secondary" id="new-btn" onclick="getNewQuestion()">
+                <span class="btn-icon">🔄</span>
+                <span class="btn-text">SOAL BARU</span>
+            </button>
+            <button class="btn btn-primary" id="submit-btn" onclick="submitAnswer()" disabled>
+                <span class="btn-icon">✓</span>
+                <span class="btn-text">SUBMIT JAWABAN</span>
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="hint">
+                <span class="hint-icon">💡</span>
+                <span>Ada banyak jawaban untuk setiap soal. Tekan <kbd>Enter</kbd> untuk submit.</span>
+            </div>
+            <div class="api-info">
+                <span class="api-status" id="api-status">API: Family 100</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
